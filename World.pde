@@ -20,9 +20,9 @@ class World {
 
     yMin = 20;
     yMax = height / 2 - 100;
-    
+
     space = 300;
-    
+
     speed = 0.5;
     speedInc = 0.01;
     worldColor = color(0, 255, 0);
@@ -44,7 +44,7 @@ class World {
     for (int i = 0; i < xPos.size() - 1; i++) {
       rect(xPos.get(i), 0, xPos.get(i + 1), yTop.get(i));
       rect(xPos.get(i), yBottom.get(i), xPos.get(i + 1), height);
-//      rect(xPos.get(i), height - yBottom.get(i), xPos.get(i + 1), height);
+      //      rect(xPos.get(i), height - yBottom.get(i), xPos.get(i + 1), height);
     }
   }
 
@@ -64,14 +64,14 @@ class World {
         //yTop.append(random(yMin, yMax));
         yBottom.remove(0);
         //yBottom.append(yTop.get(5));
-        
+
         y1 = random(20, height - space - 20);
         y2 = y1 + space;
         yTop.append(y1);
         yBottom.append(y2);
-        println(y1,y2);
-        
-        
+        println(y1, y2);
+
+
 
         //set xPos to startvalues
         for (int j = 1; j < xPos.size() - 1; j++) {

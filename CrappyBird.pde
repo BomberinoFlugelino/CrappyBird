@@ -1,7 +1,7 @@
 //kein to do
 /****** TO DO ******//*
  - make world more changing now it is always in the middle of screen the hole that shoul move
-    - use noise
+   - use noise
  - implement highscore
  - audio input
  - slider for auido sensitivity
@@ -14,6 +14,7 @@ World world;
 
 /****** VARIABLES ******/
 int gameScreen;
+int highScore;
 
 /****** SETUP ******/
 void setup() {
