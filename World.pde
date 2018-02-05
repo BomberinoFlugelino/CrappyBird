@@ -35,7 +35,6 @@ class World {
       yBottom.append(random(height - 200, height - 20));
     }
     xPos.set(5, width);
-    println(xPos);
   }
 
   void show() {
@@ -69,7 +68,6 @@ class World {
         y2 = y1 + space;
         yTop.append(y1);
         yBottom.append(y2);
-        println(y1, y2);
 
 
 
