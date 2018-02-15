@@ -18,7 +18,7 @@ int highScore;
 
 /****** SETUP ******/
 void setup() {
-  size(700, 600);
+  size(700, 850);
 
   screen = new Screen();
   player = new Player();

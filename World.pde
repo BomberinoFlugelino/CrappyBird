@@ -3,7 +3,7 @@ class World {
   float rectWidth;
   FloatList xPos, yTop, yBottom;
   int yMin, yMax;
-  float y1, y2;
+  float y1, yOff = 0, y2;
 
   float space;
   float speed, speedInc;
@@ -12,7 +12,7 @@ class World {
 
   World() {
     //how many rect
-    detail = 4;
+    detail = 4; 
     rectWidth = width / detail;
 
     //list for saving coordinates
@@ -25,9 +25,9 @@ class World {
     yMax = height / 2 - 100;
 
     //space between top and bottom rect
-    space = 300;
+    space = height / 2;
 
-    speed = 0.5;
+    speed = 1;
     speedInc = 0.01;
     worldColor = color(0, 255, 0);
 
@@ -38,6 +38,7 @@ class World {
       yTop.append(random(20, 200));
       yBottom.append(random(height - 200, height - 20));
     }
+    //y1 = yTop.get(yTop.size()-1);
     xPos.set(5, width);
   }
 
@@ -70,11 +71,13 @@ class World {
         yBottom.remove(0);
         //yBottom.append(yTop.get(5));
 
-        y1 = random(20, height - space - 20);
+        yOff = yOff + 5;
+        y1 = noise(yOff) * (height - space - 20);
+        //y1 = map(y1, 0, 1, 20, height - space - 20);
+        //y1 = random(20, height - space - 20);
         y2 = y1 + space;
         yTop.append(y1);
         yBottom.append(y2);
-
 
 
         //set xPos to startvalues
