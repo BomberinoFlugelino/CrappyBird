@@ -2,7 +2,7 @@
 /****** TO DO ******//*
  - make world more changing now it is always in the middle of screen the hole that shoul move
    - use noise
- - implement highscore
+ - show score while gaming
  - audio input
  - slider for auido sensitivity
  */
@@ -18,7 +18,7 @@ int highScore;
 
 /****** SETUP ******/
 void setup() {
-  size(700, 600);
+  size(700, 850);
 
   screen = new Screen();
   player = new Player();
