@@ -12,11 +12,13 @@ class Screen {
     fill(255);
 
     textSize(30);
-    text("CLICK TO START", width / 2, height / 3);
+    text("HIT SPACE TO START", width / 2, height / 3);
     textSize(20);
     text("HOW TO PLAY", width / 2, height / 2);
     text("hit spacebar to move player", width / 2, height / 2 + 30);
     text("do not hit walls", width / 2, height / 2 + 60);
+
+    drawGUI();
   }
 
   //playing surface
@@ -34,6 +36,8 @@ class Screen {
     score = fcEnd - fcStart;
     fill(255, 0, 0);
     text("score: " + score, width / 2, 20);
+
+    drawGUI();
   }
 
   //score screen
@@ -52,7 +56,8 @@ class Screen {
     textSize(40);
     text("YOUR SCORE: " + score, width / 2, height / 2);
     text("HIGHSCORE: " + highScore, width / 2, height / 2 + 50);
-    text("CLICK TO START AGAIN", width / 2, height / 2 + 150);
+    text("HIT SPACE TO START AGAIN", width / 2, height / 2 + 150);
+    drawGUI();
   }
 
   void startScore() {

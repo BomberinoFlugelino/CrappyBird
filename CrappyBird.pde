@@ -1,10 +1,16 @@
-//kein to do
 /****** TO DO ******//*
  - make world more changing now it is always in the middle of screen the hole that shoul move
-   - use noise
+ - use noise
  - audio input
- - slider for auido sensitivity
+ - set slider value to 
  */
+
+import controlP5.*;
+
+/****** ControlP5 ******/
+ControlP5 controlP5;
+boolean showGUI = false;
+Slider[] sliders;
 
 /****** OBJECTS ******/
 Screen screen;
@@ -24,6 +30,8 @@ void setup() {
   world = new World();
 
   background(0);
+
+  setupGUI();
 }
 
 
@@ -46,19 +54,17 @@ void draw() {
 
 
 /****** OTHER FUNCTIONS *****/
-//start game
-public void mousePressed() {
-  if (gameScreen == 0 ) {
-    gameScreen = 1;
-    screen.startScore();
-  } else if (gameScreen == 2 ) {
-    gameScreen = 3;
-  }
-}  
 
 //control player
 void keyPressed() {
   if (key == ' ') {
     player.up();
+    
+    if (gameScreen == 0 ) {
+      gameScreen = 1;
+      screen.startScore();
+    } else if (gameScreen == 2 ) {
+      gameScreen = 3;
+    }
   }
 }
