@@ -11,16 +11,20 @@ class World {
   color worldColor;
 
   World() {
+    //how many rect
     detail = 4;
     rectWidth = width / detail;
 
+    //list for saving coordinates
     xPos = new FloatList();
     yTop = new FloatList();
     yBottom = new FloatList();
 
+    //minimum height of rect
     yMin = 20;
     yMax = height / 2 - 100;
 
+    //space between top and bottom rect
     space = 300;
 
     speed = 0.5;
@@ -47,7 +51,9 @@ class World {
     }
   }
 
+
   void update() {
+    //calculate new position
     for (int i = 0; i < xPos.size(); i++) {
       //move all xPos with speed to the left
       xPos.sub(i, speed);
