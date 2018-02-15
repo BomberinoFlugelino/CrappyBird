@@ -2,7 +2,7 @@
 /****** TO DO ******//*
  - make world more changing now it is always in the middle of screen the hole that shoul move
    - use noise
- - implement highscore
+ - show score while gaming
  - audio input
  - slider for auido sensitivity
  */
