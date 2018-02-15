@@ -44,6 +44,7 @@ class Player {
       y = 0;
       velocity = 0;
     }
+    screen.endScore();
   }
 
   //player goes up when spacebar is hit

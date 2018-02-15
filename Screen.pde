@@ -30,6 +30,10 @@ class Screen {
 
     player.update();
     player.show();
+
+    score = fcEnd - fcStart;
+    fill(255, 0, 0);
+    text("score: " + score, width / 2, 20);
   }
 
   //score screen
@@ -48,7 +52,7 @@ class Screen {
     textSize(40);
     text("YOUR SCORE: " + score, width / 2, height / 2);
     text("HIGHSCORE: " + highScore, width / 2, height / 2 + 50);
-    text("CLICK TO START AGAIN", width / 2, height / 2 + 100);
+    text("CLICK TO START AGAIN", width / 2, height / 2 + 150);
   }
 
   void startScore() {
