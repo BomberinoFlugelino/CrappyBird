@@ -18,7 +18,7 @@ class Screen {
     text("hit spacebar to move player", width / 2, height / 2 + 30);
     text("do not hit walls", width / 2, height / 2 + 60);
 
-    drawGUI();
+
   }
 
   //playing surface
@@ -29,7 +29,6 @@ class Screen {
 
     world.show();
     world.update();
-
     player.update();
     player.show();
 
@@ -37,7 +36,7 @@ class Screen {
     fill(255, 0, 0);
     text("score: " + score, width / 2, 20);
 
-    drawGUI();
+    
   }
 
   //score screen
@@ -57,7 +56,7 @@ class Screen {
     text("YOUR SCORE: " + score, width / 2, height / 2);
     text("HIGHSCORE: " + highScore, width / 2, height / 2 + 50);
     text("HIT SPACE TO START AGAIN", width / 2, height / 2 + 150);
-    drawGUI();
+
   }
 
   void startScore() {

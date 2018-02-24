@@ -13,7 +13,7 @@ class Player {
     //size of player (used for world hit detection)
     diameter = height / 10 - 10;   
 
-    gravity = 0.9;
+    gravity = 0.4;
     velocity = 0;
     lift = -1;
 
@@ -37,6 +37,7 @@ class Player {
     velocity *= 0.9;
     y += velocity;
 
+
     if (y > height) {
       y = height;
       velocity = 0;
@@ -45,11 +46,16 @@ class Player {
       velocity = 0;
     }
     screen.endScore();
+    
+    if(vol > sensitivity){
+      up();
+      println("UP" + vol);
+    }
   }
 
   //player goes up when spacebar is hit
   void up() {
-    velocity += lift - 18;
+    velocity += lift;
   }
 
   void hit() {
