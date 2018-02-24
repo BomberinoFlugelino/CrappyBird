@@ -25,7 +25,7 @@ float vol, sensitivity;
 void setup() {
   size(700, 850);
   
-  sensitivity = 20;
+  sensitivity = 10;
 
   screen = new Screen();
   player = new Player();
@@ -49,6 +49,7 @@ void draw() {
   vol = map(vol, 0, 1, 0, 100);
     
   if (gameScreen == 0) {
+    player.x = width / 2;
     //show start screen
     screen.init();
   } else if (gameScreen == 1) {

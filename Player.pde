@@ -45,18 +45,20 @@ class Player {
       y = 0;
       velocity = 0;
     }
-    screen.endScore();
     
-    if(vol > sensitivity){
+    screen.endScore();
+
+    if (vol > sensitivity) {
       up();
-      println("UP" + vol);
     }
   }
 
-  //player goes up when spacebar is hit
+
+  //player goes up with audioinput
   void up() {
     velocity += lift;
   }
+
 
   void hit() {
     if (y - diameter / 2 <= world.yTop.get(1) || y + diameter / 2 >=  world.yBottom.get(1)) {

@@ -1,3 +1,4 @@
+
 class Screen {
   int fcStart, fcEnd, score;
 
@@ -12,14 +13,21 @@ class Screen {
     fill(255);
 
     textSize(30);
-    text("HIT SPACE TO START", width / 2, height / 3);
+    text("SPIELANLEITUNG", width / 2, height / 3);
     textSize(20);
-    text("HOW TO PLAY", width / 2, height / 2);
-    text("hit spacebar to move player", width / 2, height / 2 + 30);
-    text("do not hit walls", width / 2, height / 2 + 60);
+    text("Bewege Rambe mit deiner Stimme nach oben", width / 2, height / 2 -60);
+    text("Triff nicht die Wände", width / 2, height / 2 - 30);
+    textSize(15);
+    text("Bring Ramba mit deiner Stimme an den oberen Bidlschirmrand um zu beginnen.", width / 2, height / 2 + 90);
 
-
+    player.update();
+    player.show();
+    if (player.y == 0) {
+      gameScreen = 1;
+      player = new Player();
+    }
   }
+
 
   //playing surface
   void game() {
@@ -33,11 +41,11 @@ class Screen {
     player.show();
 
     score = fcEnd - fcStart;
+    textSize(16);
     fill(255, 0, 0);
     text("score: " + score, width / 2, 20);
-
-    
   }
+
 
   //score screen
   void gameOver() {
@@ -46,6 +54,7 @@ class Screen {
     if (score > highScore) {
       highScore = score;
     }
+
 
     //background(0);
 
@@ -56,16 +65,18 @@ class Screen {
     text("YOUR SCORE: " + score, width / 2, height / 2);
     text("HIGHSCORE: " + highScore, width / 2, height / 2 + 50);
     text("HIT SPACE TO START AGAIN", width / 2, height / 2 + 150);
-
   }
+
 
   void startScore() {
     fcStart = frameCount;
   }
 
+
   void endScore() {
     fcEnd = frameCount;
   }
+
 
   //reset game
   void reset() {
