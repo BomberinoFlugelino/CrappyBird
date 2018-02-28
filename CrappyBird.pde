@@ -22,11 +22,17 @@ int gameScreen;
 int highScore;
 float vol, sensitivity;
 
+
+/****** SETUP ******/
+void settings(){
+  fullScreen();
+}
+
 /****** SETUP ******/
 void setup() {
-  size(700, 500);
+  //size(700, 500);
 
-  sensitivity = 20;
+  sensitivity = 5;
 
   screen = new Screen();
   player = new Player();
