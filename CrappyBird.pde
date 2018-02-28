@@ -30,9 +30,7 @@ void settings(){
 
 /****** SETUP ******/
 void setup() {
-  //size(700, 500);
-
-  sensitivity = 5;
+  sensitivity = 20;
 
   screen = new Screen();
   player = new Player();
