@@ -34,25 +34,16 @@ void setup() {
   minim = new Minim(this);
   input = minim.getLineIn(1);
 
-
-  //mic = new AudioIn(this, 1);
-  //mic.start();
-  //analyzer = new Amplitude(this);
-  //analyzer.input(mic);
-
   background(0);
 }
 
 
 /****** DRAW ******/
 void draw() {
-  //println(input.right.get(1));
   //save and calculate audio input (0-1)
   //formula (y=1-abs(x-1)^4)
-  //println(input.right.get(1));
   vol = 1 - pow(abs(input.mix.level() - 1), 4);
   vol = map(vol, 0, 1, 0, 100);
-  //println(vol);
 
   if (gameScreen == 0) {
     player.x = width / 2;
@@ -81,6 +72,8 @@ void keyPressed() {
     if (gameScreen == 0 ) {
       gameScreen = 1;
       screen.startScore();
+      player = new Player();
+
     } else if (gameScreen == 2 ) {
       gameScreen = 3;
     }
