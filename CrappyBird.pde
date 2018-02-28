@@ -6,10 +6,11 @@
  */
 
 import processing.sound.*;
+import ddf.minim.*;
 
 /****** AUDIOINPUT ******/
-AudioIn mic;
-Amplitude analyzer;
+Minim minim;
+AudioInput input;
 
 /****** OBJECTS ******/
 Screen screen;
@@ -23,31 +24,36 @@ float vol, sensitivity;
 
 /****** SETUP ******/
 void setup() {
-  size(700, 850);
-  
-  sensitivity = 10;
+  size(700, 500);
+
+  sensitivity = 20;
 
   screen = new Screen();
   player = new Player();
   world = new World();
-    
-  mic = new AudioIn(this, 0);
-  mic.start();
-  analyzer = new Amplitude(this);
-  analyzer.input(mic);
+  minim = new Minim(this);
+  input = minim.getLineIn(1);
+
+
+  //mic = new AudioIn(this, 1);
+  //mic.start();
+  //analyzer = new Amplitude(this);
+  //analyzer.input(mic);
 
   background(0);
-
 }
 
 
 /****** DRAW ******/
 void draw() {
+  //println(input.right.get(1));
   //save and calculate audio input (0-1)
   //formula (y=1-abs(x-1)^4)
-  vol = 1 - pow(abs(analyzer.analyze() - 1), 4);
+  //println(input.right.get(1));
+  vol = 1 - pow(abs(input.mix.level() - 1), 4);
   vol = map(vol, 0, 1, 0, 100);
-    
+  //println(vol);
+
   if (gameScreen == 0) {
     player.x = width / 2;
     //show start screen
