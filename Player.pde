@@ -30,6 +30,7 @@ class Player {
     //ellipse(x, y, diameter, diameter);
     image(img, x, y);
   }
+  
 
   //update player (going down when no input)
   void update() {
@@ -46,7 +47,9 @@ class Player {
       velocity = 0;
     }
     
-    screen.endScore();
+    if(gameScreen == 1){
+      screen.endScore();
+    }
 
     if (vol > sensitivity) {
       up();

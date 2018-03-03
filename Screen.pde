@@ -51,13 +51,13 @@ class Screen {
   //score screen
   void gameOver() {
     score = fcEnd - fcStart;
-
+    
     if (score > highScore) {
       highScore = score;
     }
 
 
-    //background(0);
+    background(0);
 
     textSize(60);
     fill(255, 0, 0);
@@ -66,6 +66,14 @@ class Screen {
     text("YOUR SCORE: " + score, width / 2, height / 2);
     text("HIGHSCORE: " + highScore, width / 2, height / 2 + 50);
     text("HIT SPACE TO START AGAIN", width / 2, height / 2 + 150);
+
+    player.update();
+    player.show();
+    if (player.y == 0) {
+      gameScreen = 0;
+      player = new Player();
+      startScore();
+    }
   }
 
 
