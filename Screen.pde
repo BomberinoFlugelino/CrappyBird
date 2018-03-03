@@ -25,6 +25,7 @@ class Screen {
     if (player.y == 0) {
       gameScreen = 1;
       player = new Player();
+      startScore();
     }
   }
 

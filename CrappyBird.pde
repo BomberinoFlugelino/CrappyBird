@@ -23,7 +23,7 @@ int highScore;
 float vol, sensitivity;
 
 
-/****** SETUP ******/
+/****** SETTINGS ******/
 void settings(){
   fullScreen();
 }
@@ -40,7 +40,6 @@ void setup() {
 
   background(0);
 }
-
 
 /****** DRAW ******/
 void draw() {
