@@ -95,5 +95,6 @@ class Screen {
 
     background(0);
     gameScreen = 0;
+    speed = 1;
   }
 }

@@ -1,9 +1,14 @@
+/***** RASPBERRY SETTINGS *****/
+/* change .txt file
+terminal > ssh -y pi@IP-ADRESS
+sudo nano /boot/config.txt
+decomment line hdmi_safe=1 and hdmi_force_hotplug=1
+*/
+
 /****** TO DO ******//*
  - make world more changing now it is always in the middle of screen the hole that shoul move
  - use noise
- - audio input
- - set slider value to 
- */
+*/
 
 import processing.sound.*;
 import ddf.minim.*;
@@ -21,6 +26,8 @@ World world;
 int gameScreen;
 int highScore;
 float vol, sensitivity;
+float speed, speedInc;
+
 
 
 /****** SETTINGS ******/

@@ -6,7 +6,6 @@ class World {
   float y1, yOff = 0, y2;
 
   float space;
-  float speed, speedInc;
 
   color worldColor;
 
