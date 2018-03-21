@@ -7,7 +7,7 @@ decomment line hdmi_safe=1 and hdmi_force_hotplug=1
 
 /****** TO DO ******//*
  - make world more changing now it is always in the middle of screen the hole that should move
- - use noise
+ - use noise for world
 */
 
 import processing.sound.*;
