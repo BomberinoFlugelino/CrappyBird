@@ -1,12 +1,13 @@
-/***** RASPBERRY SETTINGS *****/
-/* change .txt file
+/***** RASPBERRY SETTINGS *****
+ -> for using the miniTV
+ change .txt file
  terminal > ssh -y pi@IP-ADRESS
  sudo nano /boot/config.txt
  decomment line hdmi_safe=1 and hdmi_force_hotplug=1
  */
 
-/****** TO DO ******//*
- - make world more changing now it is always in the middle of screen the hole that should move
+/****** TO DO ******
+ - make world more changing
  - use noise for world
  */
 
@@ -18,7 +19,7 @@ import netP5.*;
 /****** OSC ******/
 OscP5 osc;
 NetAddress oscIN;
-NetAddress oscOUT;
+NetAddress[] oscOUT = new NetAddress[3]; //make oscOUT objects for all IPs
 
 /****** AUDIOINPUT ******/
 Minim minim;
@@ -36,12 +37,9 @@ float vol, sensitivity;
 float speed, speedInc;
 
 ///****** OSC ******
-//me as transmitter
-String IPOut = "192.168.0.18";
-int portOut = 10400;
-//the other as receiver
-//String IPIn = "192.168.0.19"; 
-int portIn = 5007;
+String[] IPsOut = {"192.168.0.18", "192.168.0.18", "192.168.0.18"}; //ip where message is send to
+int portsOut[] = {10410, 10420, 10430}; //port on which message will be send
+int portIn = 5007; //port on whicht it will listen for messages
 float oscVol;
 
 /****** SETTINGS ******/
@@ -62,8 +60,11 @@ void setup() {
 
   //start oscP5, listening for incoming messages at port portReceiv
   osc = new OscP5(this, portIn);
-  //oscIN = new NetAddress(IPIn, portIn);
-  oscOUT = new NetAddress(IPOut, portOut);
+
+  //create oscOUT objects for all IPs
+  for (int i=0; i < IPsOut.length; i++) {
+    oscOUT[i] = new NetAddress(IPsOut[i], portsOut[i]);
+  }
 
   background(0);
 }
@@ -92,10 +93,23 @@ void draw() {
   }
 }
 
+/****** OSC Sender *****/
+void OSC_sender() {
+  //create message
+  OscMessage messageTransmit = new OscMessage("CrappyBird");
+  messageTransmit.add(oscVol);
+  messageTransmit.add(screen.score);
+  messageTransmit.add(highScore);
+
+  //send to all IPs
+  for (int i=0; i < IPsOut.length; i++) {
+    osc.send(messageTransmit, oscOUT[i]);
+    println(i);
+  }
+}
 
 /****** OTHER FUNCTIONS *****/
-
-//control player
+//--- control player ---
 void keyPressed() {
   if (key == ' ') {
     player.up();
@@ -108,17 +122,4 @@ void keyPressed() {
       gameScreen = 3;
     }
   }
-}
-
-/****** OSC Sender *****/
-
-void OSC_sender() {
-  OscMessage messageTransmit = new OscMessage("CrappyBird");
-  messageTransmit.add(oscVol);
-  messageTransmit.add(screen.score);
-  messageTransmit.add(highScore);
-
-  osc.send(messageTransmit, oscOUT);
-
-  println(messageTransmit);
 }
