@@ -77,9 +77,6 @@ class Screen {
       player = new Player();
       startScore();
     }
-
-  //  world.speed = 1;
-    world.speedInc = 0.01;
   }
 
 
