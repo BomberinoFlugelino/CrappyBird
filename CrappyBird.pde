@@ -3,7 +3,7 @@
  change .txt file
  terminal > ssh -y pi@IP-ADRESS
  sudo nano /boot/config.txt
- decomment line hdmi_safe=1 and hdmi_force_hotplug=1
+ uncomment line hdmi_safe=1 and hdmi_force_hotplug=1
  */
 
 /****** TO DO ******
