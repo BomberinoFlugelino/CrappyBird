@@ -103,13 +103,14 @@ void OSC_sender() {
   messageTransmit.add(oscVol);
   messageTransmit.add(screen.score);
   messageTransmit.add(highScore);
+  messageTransmit.add(gameScreen);
 
   //send to all IPs
   for (int i=0; i < IPsOut.length; i++) {
     osc.send(messageTransmit, oscOUT[i]);
-    println(IPsOut[i], portsOut[i]);
+    //println(IPsOut[i], portsOut[i]);
   }
-  println(messageTransmit);
+  //println(messageTransmit);
 }
 
 /****** OTHER FUNCTIONS *****/
