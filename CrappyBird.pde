@@ -86,6 +86,11 @@ void draw() {
   } else if (gameScreen == 2) {
     //show game over screen
     screen.gameOver();
+    
+    //set world-speed to default
+    speed = 1;
+    speedInc = 0.01;
+    
   } else if (gameScreen == 3) {
     //reset game
     screen.reset();
@@ -95,7 +100,7 @@ void draw() {
 /****** OSC Sender *****/
 void OSC_sender() {
   //create message    
-  OscMessage messageTransmit = new OscMessage("CrappyBird");
+  OscMessage messageTransmit = new OscMessage("/CrappyBird");
   messageTransmit.add(oscVol);
   messageTransmit.add(screen.score);
   messageTransmit.add(highScore);
