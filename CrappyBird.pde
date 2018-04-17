@@ -76,6 +76,8 @@ void draw() {
   oscVol = vol; //save vol for osc message
   vol = map(vol, 0, 1, 0, 100);
 
+  OSC_sender();
+
   if (gameScreen == 0) {
     player.x = width / 2;
     //show start screen
