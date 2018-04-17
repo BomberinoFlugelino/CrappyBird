@@ -44,7 +44,7 @@ float oscVol;
 /****** SETTINGS ******/
 void settings() {
   //fullScreen();
-  size(400, 800);
+  size(600, 800);
 }
 
 /****** SETUP ******/
@@ -107,9 +107,9 @@ void OSC_sender() {
   //send to all IPs
   for (int i=0; i < IPsOut.length; i++) {
     osc.send(messageTransmit, oscOUT[i]);
-    println(IPsOut[i], portsOut[i]);
+    //println(IPsOut[i], portsOut[i]);
   }
-  println(messageTransmit);
+  //println(messageTransmit);
 }
 
 /****** OTHER FUNCTIONS *****/
