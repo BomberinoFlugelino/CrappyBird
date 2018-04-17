@@ -37,7 +37,7 @@ float speed, speedInc;
 
 //****** OSC ******
 String[] IPsOut = {"192.168.0.18", "192.168.0.19", "192.168.0.18"}; //ip where message is send to
-int portsOut[] = {10410, 10420, 10430}; //port on which message will be send
+int portsOut[] = {10400, 10400, 10400}; //port on which message will be send
 int portIn = 5007; //port on whicht it will listen for messages
 float oscVol;
 
@@ -98,7 +98,7 @@ void draw() {
 
 /****** OSC Sender *****/
 void OSC_sender() {
-  //create message    
+  //create message
   OscMessage messageTransmit = new OscMessage("/CrappyBird");
   messageTransmit.add(oscVol);
   messageTransmit.add(screen.score);

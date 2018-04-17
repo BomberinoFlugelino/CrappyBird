@@ -58,6 +58,8 @@ class Screen {
       highScore = score;
     }
 
+    //für testzwecke
+    OSC_sender();
 
 
     background(0);
