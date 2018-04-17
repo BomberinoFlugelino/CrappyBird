@@ -103,6 +103,7 @@ void OSC_sender() {
   messageTransmit.add(oscVol);
   messageTransmit.add(screen.score);
   messageTransmit.add(highScore);
+  messageTransmit.add(gameScreen);
 
   //send to all IPs
   for (int i=0; i < IPsOut.length; i++) {
