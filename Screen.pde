@@ -45,7 +45,7 @@ class Screen {
     textSize(16);
     fill(255, 0, 0);
     text("score: " + score, width / 2, 20);
-    
+
     OSC_sender();
   }
 
@@ -53,7 +53,7 @@ class Screen {
   //score screen
   void gameOver() {
     score = fcEnd - fcStart;
-    
+
     if (score > highScore) {
       highScore = score;
     }
@@ -77,6 +77,9 @@ class Screen {
       player = new Player();
       startScore();
     }
+
+  //  world.speed = 1;
+    world.speedInc = 0.01;
   }
 
 

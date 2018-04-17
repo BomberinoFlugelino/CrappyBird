@@ -84,8 +84,11 @@ void draw() {
     //start game
     screen.game();
   } else if (gameScreen == 2) {
+    player.x = width / 2;
     //show game over screen
     screen.gameOver();
+    speed = 1;
+    speedInc = 0.01;
   } else if (gameScreen == 3) {
     //reset game
     screen.reset();
@@ -94,7 +97,7 @@ void draw() {
 
 /****** OSC Sender *****/
 void OSC_sender() {
-  //create message    
+  //create message
   OscMessage messageTransmit = new OscMessage("CrappyBird");
   messageTransmit.add(oscVol);
   messageTransmit.add(screen.score);
