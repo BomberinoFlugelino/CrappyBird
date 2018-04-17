@@ -11,7 +11,6 @@
  - use noise for world
  */
 
-import processing.sound.*;
 import ddf.minim.*;
 import oscP5.*;
 import netP5.*;
@@ -36,8 +35,8 @@ int highScore;
 float vol, sensitivity;
 float speed, speedInc;
 
-///****** OSC ******
-String[] IPsOut = {"192.168.0.18", "192.168.0.18", "192.168.0.18"}; //ip where message is send to
+//****** OSC ******
+String[] IPsOut = {"192.168.0.18", "192.168.0.19", "192.168.0.18"}; //ip where message is send to
 int portsOut[] = {10410, 10420, 10430}; //port on which message will be send
 int portIn = 5007; //port on whicht it will listen for messages
 float oscVol;
@@ -58,7 +57,7 @@ void setup() {
   minim = new Minim(this);
   input = minim.getLineIn(1);
 
-  //start oscP5, listening for incoming messages at port portReceiv
+  //start oscP5, listening for incoming messages at portIn
   osc = new OscP5(this, portIn);
 
   //create oscOUT objects for all IPs
@@ -95,7 +94,7 @@ void draw() {
 
 /****** OSC Sender *****/
 void OSC_sender() {
-  //create message
+  //create message    
   OscMessage messageTransmit = new OscMessage("CrappyBird");
   messageTransmit.add(oscVol);
   messageTransmit.add(screen.score);
@@ -104,8 +103,10 @@ void OSC_sender() {
   //send to all IPs
   for (int i=0; i < IPsOut.length; i++) {
     osc.send(messageTransmit, oscOUT[i]);
-    println(i);
+    println(IPsOut[i], portsOut[i]);
   }
+  println(messageTransmit);
+
 }
 
 /****** OTHER FUNCTIONS *****/
