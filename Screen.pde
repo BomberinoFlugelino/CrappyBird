@@ -46,7 +46,6 @@ class Screen {
     fill(255, 0, 0);
     text("score: " + score, width / 2, 20);
 
-    OSC_sender();
   }
 
 
@@ -57,10 +56,6 @@ class Screen {
     if (score > highScore) {
       highScore = score;
     }
-
-    //für testzwecke
-    OSC_sender();
-
 
     background(0);
 
