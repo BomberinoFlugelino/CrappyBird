@@ -69,7 +69,7 @@ void setup() {
 }
 
 /****** DRAW ******/
-void draw() {
+void draw() {  
   //save and calculate audio input (0-1)
   //formula (y=1-abs(x-1)^4)
   vol = 1 - pow(abs(input.mix.level() - 1), 4);

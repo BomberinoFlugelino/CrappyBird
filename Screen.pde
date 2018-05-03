@@ -45,7 +45,6 @@ class Screen {
     textSize(16);
     fill(255, 0, 0);
     text("score: " + score, width / 2, 20);
-
   }
 
 
@@ -70,7 +69,7 @@ class Screen {
     player.update();
     player.show();
     if (player.y == 0) {
-      gameScreen = 0;
+      gameScreen = 3;
       player = new Player();
       startScore();
     }
@@ -93,8 +92,11 @@ class Screen {
     player = new Player();
     world = new World();
 
+    
+    
     background(0);
     gameScreen = 0;
     speed = 1;
+
   }
 }
