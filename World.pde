@@ -34,8 +34,8 @@ class World {
 
     for (int i = 0; i < detail + 2; i++) { //+2 is for start and end
       xPos.append(i * rectWidth);
-      yTop.append(random(20, 200));
-      yBottom.append(random(height - 200, height - 20));
+      yTop.append(random(yMin, yMax));
+      yBottom.append(random(height - yMax, height - yMin));
     }
     //y1 = yTop.get(yTop.size()-1);
     xPos.set(5, width);

@@ -13,12 +13,12 @@ class Screen {
     fill(255);
 
     textSize(30);
-    text("SPIELANLEITUNG", width / 2, height / 3);
+    text("SPIELANLEITUNG", width / 2, 50);
     textSize(20);
-    text("Bewege Rambe mit deiner Stimme nach oben", width / 2, height / 2 -60);
+    text("Bewege Rambe mit deiner Stimme nach oben", width / 2, 150);
     text("Triff nicht die Wände", width / 2, height / 2 - 30);
     textSize(15);
-    text("Bring Ramba mit deiner Stimme an den oberen Bidlschirmrand um zu beginnen.", width / 2, height / 2 + 90);
+    text("Bring Ramba mit deiner Stimme an den oberen Bildschirmrand um zu beginnen.", width / 2, 250);
 
     player.update();
     player.show();
@@ -44,7 +44,7 @@ class Screen {
     score = fcEnd - fcStart;
     textSize(16);
     fill(255, 0, 0);
-    text("score: " + score, width / 2, 20);
+    text("Punktzahl: " + score, width / 2, 20);
   }
 
 
@@ -60,11 +60,13 @@ class Screen {
 
     textSize(60);
     fill(255, 0, 0);
-    text("GAME OVER", width / 2, height / 3);
+    text("GAME OVER", width / 2, 90);
     textSize(40);
-    text("YOUR SCORE: " + score, width / 2, height / 2);
-    text("HIGHSCORE: " + highScore, width / 2, height / 2 + 50);
-    text("HIT SPACE TO START AGAIN", width / 2, height / 2 + 150);
+    text("DEINE PUNKTZAHL: " + score, width / 2, 190);
+    text("HIGHSCORE: " + highScore, width / 2, 250);
+    textSize(15);
+    text("Bring Ramba mit deiner Stimme an den oberen Bildschirmrand um zu beginnen.", width / 2, 350);
+
 
     player.update();
     player.show();
