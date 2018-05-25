@@ -44,7 +44,7 @@ float oscVol;
 /****** SETTINGS ******/
 void settings() {
   //fullScreen();
-  size(600, 800);
+  size(600, 400); //size on little TV
 }
 
 /****** SETUP ******/
