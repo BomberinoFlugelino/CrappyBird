@@ -32,11 +32,11 @@ World world;
 /****** VARIABLES ******/
 int gameScreen;
 int highScore;
-float vol, sensitivity;
+float vol, sensitivity, maxSensitivity, sensitivityIncrease;
 float speed, speedInc;
 
 //****** OSC ******
-String[] IPsOut = {"192.168.0.18", "192.168.0.19", "192.168.0.18"}; //ip where message is send to
+String[] IPsOut = {"192.168.0.13", "192.168.0.19", "192.168.0.18"}; //ip where message is send to
 int portsOut[] = {10400, 10400, 10400}; //port on which message will be send
 int portIn = 5007; //port on whicht it will listen for messages
 float oscVol;
@@ -50,6 +50,8 @@ void settings() {
 /****** SETUP ******/
 void setup() {
   sensitivity = 20;
+  maxSensitivity = 50;
+  sensitivityIncrease = 0.05;
 
   screen = new Screen();
   player = new Player();
@@ -76,7 +78,7 @@ void draw() {
   oscVol = vol; //save vol for osc message
   vol = map(vol, 0, 1, 0, 100);
 
-  OSC_sender();
+  //OSC_sender();
 
   if (gameScreen == 0) {
     player.x = width / 2;

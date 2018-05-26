@@ -10,6 +10,14 @@ class Screen {
   //start screen
   void init() {
     background(0);
+
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(width/2 , 0, width/2, height - 40);
+    line(width/2, 0, width/2 + 30, 70);
+    line(width/2, 0, width/2 - 30, 70);
+    noStroke();
+    
     fill(255);
 
     textSize(30);
@@ -45,6 +53,10 @@ class Screen {
     textSize(16);
     fill(255, 0, 0);
     text("Punktzahl: " + score, width / 2, 20);
+
+    if (sensitivity < maxSensitivity) {
+      sensitivity += sensitivityIncrease;
+    }
   }
 
 
@@ -57,9 +69,16 @@ class Screen {
     }
 
     background(0);
-
+    
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(width/2 , 0, width/2, height - 40);
+    line(width/2, 0, width/2 + 30, 70);
+    line(width/2, 0, width/2 - 30, 70);
+    noStroke();
+    
     textSize(60);
-    fill(255, 0, 0);
+    fill(255);
     text("GAME OVER", width / 2, 90);
     textSize(40);
     text("DEINE PUNKTZAHL: " + score, width / 2, 190);
@@ -94,11 +113,11 @@ class Screen {
     player = new Player();
     world = new World();
 
-    
-    
+    input.close();
+    input = minim.getLineIn(1);
+
     background(0);
     gameScreen = 0;
     speed = 1;
-
   }
 }
