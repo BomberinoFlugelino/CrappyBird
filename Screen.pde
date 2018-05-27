@@ -8,16 +8,16 @@ class Screen {
   }
 
   //start screen
-  void init() {
+  void init() {    
     background(0);
 
     stroke(255, 0, 0);
     strokeWeight(4);
-    line(width/2 , 0, width/2, height - 40);
+    line(width/2, 0, width/2, height - 40);
     line(width/2, 0, width/2 + 30, 70);
     line(width/2, 0, width/2 - 30, 70);
     noStroke();
-    
+
     fill(255);
 
     textSize(30);
@@ -31,6 +31,9 @@ class Screen {
     player.update();
     player.show();
     if (player.y == 0) {
+      input.close();
+      input = minim.getLineIn(1);
+      
       gameScreen = 1;
       player = new Player();
       startScore();
@@ -69,14 +72,14 @@ class Screen {
     }
 
     background(0);
-    
+
     stroke(255, 0, 0);
     strokeWeight(4);
-    line(width/2 , 0, width/2, height - 40);
+    line(width/2, 0, width/2, height - 40);
     line(width/2, 0, width/2 + 30, 70);
     line(width/2, 0, width/2 - 30, 70);
     noStroke();
-    
+
     textSize(60);
     fill(255);
     text("GAME OVER", width / 2, 90);
