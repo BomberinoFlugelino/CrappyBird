@@ -35,10 +35,10 @@ int highScore;
 float vol, sensitivity, maxSensitivity, sensitivityIncrease;
 float speed, speedInc;
 
-//****** OSC ******
+/****** OSC ******/
 String[] IPsOut = {"192.168.0.13", "192.168.0.19", "192.168.0.18"}; //ip where message is send to
 int portsOut[] = {10400, 10400, 10400}; //port on which message will be send
-int portIn = 5007; //port on whicht it will listen for messages
+int portIn = 5007; //port on which it will listen for messages
 float oscVol;
 
 /****** SETTINGS ******/
@@ -78,7 +78,7 @@ void draw() {
   oscVol = vol; //save vol for osc message
   vol = map(vol, 0, 1, 0, 100);
 
-  //OSC_sender();
+  OSC_sender();
 
   if (gameScreen == 0) {
     player.x = width / 2;
