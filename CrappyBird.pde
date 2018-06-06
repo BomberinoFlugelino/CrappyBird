@@ -36,8 +36,16 @@ float vol, sensitivity, maxSensitivity, sensitivityIncrease;
 float speed, speedInc;
 
 /****** OSC ******/
-String[] IPsOut = {"192.168.0.13", "192.168.0.19", "192.168.0.18"}; //ip where message is send to
-int portsOut[] = {10400, 10400, 10400}; //port on which message will be send
+String[] IPsOut = {"192.168.1.121",  // visuals 1
+                   "192.168.1.121",  // visuals 2
+                   "192.168.1.121",  // visuals counter
+                   "192.168.1.120"}; // sound
+                   
+int portsOut[] = {21101,
+                  21102, 
+                  21200,
+                  21301};
+                  
 int portIn = 5007; //port on which it will listen for messages
 float oscVol;
 
